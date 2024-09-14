@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c10jljqow0sg"]
+[gd_scene load_steps=4 format=3 uid="uid://c10jljqow0sg"]
 
 [ext_resource type="PackedScene" uid="uid://3k6svtn0hdeb" path="res://NPC Generic.tscn" id="1_2vkv0"]
+[ext_resource type="PackedScene" uid="uid://cy5entsoepwpc" path="res://player.tscn" id="2_to1wd"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yinsn"]
 
@@ -20,10 +21,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("WorldBoundaryShape3D_yinsn")
 
 [node name="NPC" parent="." instance=ExtResource("1_2vkv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84796, 0.98776, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.848, 0, 0)
+
+[node name="Area3D" parent="NPC/Sprite3D" index="0"]
+strings = Array[String](["Butts", "Nuts", "Coconuts"])
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30584, 0.512198, 4.47341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30584, 0.512198, 1.50991)
 light_color = Color(0.8, 1, 0.75, 1)
 light_energy = 1.213
 light_indirect_energy = 0.68
@@ -34,3 +38,15 @@ shadow_enabled = true
 shadow_bias = 0.633
 omni_range = 17.977
 omni_attenuation = 4.076
+
+[node name="Player" parent="." instance=ExtResource("2_to1wd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.535493, 0, 3.8894)
+
+[node name="NPC2" parent="." instance=ExtResource("1_2vkv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92562, 0.992511, 0)
+
+[node name="Area3D" parent="NPC2/Sprite3D" index="0"]
+strings = Array[String](["Harry", "Larry", "Garry"])
+
+[editable path="NPC"]
+[editable path="NPC2"]

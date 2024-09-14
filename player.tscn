@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy5entsoepwpc"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_aq1ty"]
+[ext_resource type="Texture2D" uid="uid://bgrfom2mfkpu1" path="res://old_man.png" id="2_mdhh6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hp5ip"]
+radius = 0.433216
+height = 2.12977
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6mnw3"]
+radius = 1.75086
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_aq1ty")
+x_rot = -6.005
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_hp5ip")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+modulate = Color(1, 1, 0, 1)
+texture = ExtResource("2_mdhh6")
+region_enabled = true
+region_rect = Rect2(475.653, 167.031, 176.375, 329.405)
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.992546, 0.121869, 0, -0.121869, 0.992546, 0, 0.461912, 5.22657)
+current = true
+far = 4000.6
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_6mnw3")
