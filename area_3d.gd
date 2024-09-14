@@ -14,10 +14,13 @@ var local_ui_instance = null
 func _ready() -> void:
 	local_ui_instance = preload("res://local_ui_root/scene.tscn").instantiate()
 	add_child(local_ui_instance)
+	local_ui_instance.rich_text_node.finished.connect(got_input)
 	area_entered.connect(area_entered_delegate)
 	area_exited.connect(area_exited_delegate)
 	pass # Replace with function body.
 
+func got_input():
+	print_debug(local_ui_instance.rich_text_node.visible_ratio)
 
 func enable_local_ui():
 	local_ui_instance.printing = true
