@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy5entsoepwpc"]
+[gd_scene load_steps=6 format=3 uid="uid://cy5entsoepwpc"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_aq1ty"]
 [ext_resource type="Texture2D" uid="uid://bgrfom2mfkpu1" path="res://old_man.png" id="2_mdhh6"]
+[ext_resource type="Script" path="res://player_interact.gd" id="3_5ul06"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hp5ip"]
 radius = 0.433216
@@ -13,6 +14,8 @@ radius = 1.75086
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_aq1ty")
 x_rot = -6.005
+increment = 0.121
+factor = 0.0005
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_hp5ip")
@@ -33,3 +36,18 @@ far = 4000.6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_6mnw3")
+
+[node name="Interact" type="RichTextLabel" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 276.0
+offset_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]Speak to {NPC}[/center]"
+fit_content = true
+script = ExtResource("3_5ul06")
+increment = 0.031

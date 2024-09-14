@@ -45,6 +45,8 @@ radius = 0.348065
 
 [node name="NPC" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0529358, 0.992511, 0)
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0729681, 0, 0)

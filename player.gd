@@ -3,12 +3,14 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const RADIANS = PI/16
 const WIGGLE_INI = 0
 
 @export var x_rot = -7.0
+@export var increment = PI/16
+@export_range(0.0005, 0.002) var factor = .002
 @onready var cam = get_node("Camera")
-
+@onready var text_node = get_node("Interact")
+@onready var original_text = text_node.text
 var wiggle = 0
 var last_direction = Vector3(0.0,0.0,0.0)
 var node_dict = {}
@@ -32,12 +34,16 @@ func access_dialog():
 			print_debug(id.getAndIncrementString())
 	return ""
 
-func _physics_process(delta: float) -> void:
-
+func _physics_process(_delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * _delta
 
+	text_node.visible = !node_dict.is_empty()
+	
+	if text_node.visible:
+		var npc_name = node_dict.keys().front().npc_name
+		text_node.text = original_text.format({"NPC": npc_name})
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept"):
 		access_dialog()
@@ -48,14 +54,14 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 	if direction:
-		wiggle += RADIANS * direction.z
+		wiggle += increment * direction.z
 		last_direction = direction
 
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
 		if !is_equal_approx(cam.rotation.x, x_rot):
-			wiggle += RADIANS * last_direction.z
+			wiggle += increment * last_direction.z
 		else:
 			last_direction = Vector3.ZERO
 			wiggle = WIGGLE_INI;
@@ -63,4 +69,4 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	move_and_slide()
-	#cam.rotation.x = x_rot + cos(wiggle) * 0.002
+	cam.rotation.x = x_rot + cos(wiggle) * factor

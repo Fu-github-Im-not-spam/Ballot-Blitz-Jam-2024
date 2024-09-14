@@ -25,6 +25,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.848, 0, 0)
 
 [node name="Area3D" parent="NPC/Sprite3D" index="0"]
 strings = Array[String](["Butts", "Nuts", "Coconuts"])
+npc_name = "Bill"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30584, 0.512198, 1.50991)
@@ -47,6 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92562, 0.992511, 0)
 
 [node name="Area3D" parent="NPC2/Sprite3D" index="0"]
 strings = Array[String](["Harry", "Larry", "Garry"])
+npc_name = "Fred"
 
 [editable path="NPC"]
 [editable path="NPC2"]
