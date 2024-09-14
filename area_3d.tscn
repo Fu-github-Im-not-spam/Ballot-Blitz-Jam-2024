@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://c10jljqow0sg"]
+
+[ext_resource type="PackedScene" uid="uid://3k6svtn0hdeb" path="res://NPC Generic.tscn" id="1_2vkv0"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yinsn"]
+
+[node name="Stage" type="StaticBody3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.241661, -0.875552, -0.418341, 0.833223, -0.408192, 0.372988, -0.497333, -0.258434, 0.828173, -28.4147, 75.0334, 45.3227)
+light_color = Color(0.91, 0.8463, 0.869657, 1)
+light_energy = 0.72
+light_angular_distance = 19.1
+shadow_enabled = true
+directional_shadow_max_distance = 683.7
+directional_shadow_pancake_size = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("WorldBoundaryShape3D_yinsn")
+
+[node name="NPC" parent="." instance=ExtResource("1_2vkv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84796, 0.98776, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30584, 0.512198, 4.47341)
+light_color = Color(0.8, 1, 0.75, 1)
+light_energy = 1.213
+light_indirect_energy = 0.68
+light_volumetric_fog_energy = 0.68
+light_size = 0.093
+light_specular = 1.627
+shadow_enabled = true
+shadow_bias = 0.633
+omni_range = 17.977
+omni_attenuation = 4.076
