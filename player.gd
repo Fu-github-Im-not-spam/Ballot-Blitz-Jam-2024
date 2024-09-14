@@ -30,8 +30,7 @@ func remove_node(id):
 func access_dialog():
 	if node_dict.size():
 		var id = node_dict.keys().front()
-		if id.getString() != "null":
-			print_debug(id.getAndIncrementString())
+		id.enable_local_ui()
 	return ""
 
 func _physics_process(_delta: float) -> void:

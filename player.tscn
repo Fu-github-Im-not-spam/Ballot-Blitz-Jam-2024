@@ -14,7 +14,6 @@ radius = 1.75086
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_aq1ty")
 x_rot = -6.005
-increment = 0.121
 factor = 0.0005
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

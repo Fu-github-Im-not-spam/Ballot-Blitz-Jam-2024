@@ -20,13 +20,6 @@ directional_shadow_pancake_size = 10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("WorldBoundaryShape3D_yinsn")
 
-[node name="NPC" parent="." instance=ExtResource("1_2vkv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.848, 0, 0)
-
-[node name="Area3D" parent="NPC/Sprite3D" index="0"]
-strings = Array[String](["Butts", "Nuts", "Coconuts"])
-npc_name = "Bill"
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30584, 0.512198, 1.50991)
 light_color = Color(0.8, 1, 0.75, 1)
@@ -43,12 +36,11 @@ omni_attenuation = 4.076
 [node name="Player" parent="." instance=ExtResource("2_to1wd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.535493, 0, 3.8894)
 
-[node name="NPC2" parent="." instance=ExtResource("1_2vkv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92562, 0.992511, 0)
+[node name="NPC" parent="." instance=ExtResource("1_2vkv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07277, 0.992511, 3.58205)
 
-[node name="Area3D" parent="NPC2/Sprite3D" index="0"]
-strings = Array[String](["Harry", "Larry", "Garry"])
-npc_name = "Fred"
+[node name="Area3D" parent="NPC/Sprite3D" index="0"]
+strings = Array[String](["Well I'll be a monkey's asshole"])
+npc_name = "Jeff"
 
 [editable path="NPC"]
-[editable path="NPC2"]

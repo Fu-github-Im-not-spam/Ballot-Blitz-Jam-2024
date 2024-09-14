@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://3k6svtn0hdeb"]
+[gd_scene load_steps=13 format=3 uid="uid://3k6svtn0hdeb"]
 
 [ext_resource type="Texture2D" uid="uid://bgrfom2mfkpu1" path="res://old_man.png" id="2_7v3t6"]
 [ext_resource type="Texture2D" uid="uid://cew5xr5o3gw4g" path="res://crumpled_paper/paper_0022_ao_1k.jpg" id="3_diqh3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtwlsvr5c6e5" path="res://crumpled_paper/paper_0022_roughness_1k.jpg" id="4_j0kwy"]
 [ext_resource type="Texture2D" uid="uid://cdjoniw2j7wgr" path="res://crumpled_paper/paper_0022_height_1k.png" id="4_y2xlo"]
 [ext_resource type="Script" path="res://area_3d.gd" id="6_e4e3m"]
+[ext_resource type="Script" path="res://npc_rich_text_label.gd" id="7_j17xm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wdrcf"]
 size = Vector3(1.02289, 2.02984, 0.323822)
@@ -16,7 +17,7 @@ cull_mode = 2
 diffuse_mode = 1
 albedo_color = Color(0.97, 0.97, 0.97, 1)
 albedo_texture = ExtResource("2_7v3t6")
-roughness = 0.89
+roughness = 0.7
 roughness_texture = ExtResource("4_j0kwy")
 normal_enabled = true
 normal_scale = 0.5
@@ -65,7 +66,18 @@ strings = Array[String]([""])
 transform = Transform3D(5.33, 0, 0, 0, 5.33, 0, 0, 0, 5.33, 0, 0, 0)
 shape = SubResource("SphereShape3D_5cjhq")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite3D"]
+visible = false
+offset_left = 606.0
+offset_top = 312.0
+offset_right = 646.0
+offset_bottom = 352.0
+script = ExtResource("7_j17xm")
+
 [node name="debug forward" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.154115, 0, 0, 0, 0.14289, 0, 0, 0, 0.216632, 0, 0, 1.05191)
 visible = false
 mesh = SubResource("SphereMesh_xljvo")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(149, 177, 232, 459, 860, 354, 741, 159, 192, 152)

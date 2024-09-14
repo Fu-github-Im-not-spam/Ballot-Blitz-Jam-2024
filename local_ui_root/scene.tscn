@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://1wdifkeydp1t"]
+
+[ext_resource type="Script" path="res://local_ui_root/script.gd" id="1_j27e0"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_a3ga7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7506i"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_obpsn"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_7506i")
+
+[node name="LocalUIRoot" type="Node3D"]
+script = ExtResource("1_j27e0")
+text_speed = 0.55
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport"]
+clip_contents = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 128.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.54
+bbcode_enabled = true
+text = "[center]Blaasdfasdfwesadfgwergsagfasdfgasdgasgfasdgfasedfwaegwsgfwegsrdgdrh[/center]"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+mesh = SubResource("QuadMesh_a3ga7")
+surface_material_override/0 = SubResource("StandardMaterial3D_obpsn")
